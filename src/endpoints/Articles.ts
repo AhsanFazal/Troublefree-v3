@@ -4,4 +4,71 @@ export class Articles extends BaseEndpoint {
   public async get(query: any) {
     return this.httpClient.GET("/articles", { params: { query } })
   }
+
+  public async post(query: any, body: any) {
+    return this.httpClient.POST("/articles", { params: { query }, body })
+  }
+
+  public async put(article: any, query: any, body: any) {
+    return this.httpClient.PUT("/articles/{article}", {
+      params: { query, path: { article } },
+      body
+    })
+  }
+
+  public async delete(article: any) {
+    return this.httpClient.DELETE("/articles/{article}", {
+      params: { path: { article } }
+    })
+  }
+
+  public groups = {
+    batch: async (query: any, body: any) =>
+      this.httpClient.POST("/article_groups/batch", {
+        params: { query },
+        body
+      }),
+    get: async (query: any) =>
+      this.httpClient.GET("/article_groups", { params: { query } }),
+    post: async (query: any, body: any) =>
+      this.httpClient.POST("/article_groups", { params: { query }, body }),
+    getById: async (article_group: any) =>
+      this.httpClient.GET("/article_groups/{article_group}", {
+        params: { path: { article_group } }
+      }),
+    putById: async (article_group: any, query: any, body: any) =>
+      this.httpClient.PUT("/article_groups/{article_group}", {
+        params: { query, path: { article_group } },
+        body
+      }),
+    deleteById: async (article_group: any) =>
+      this.httpClient.DELETE("/article_groups/{article_group}", {
+        params: { path: { article_group } }
+      })
+  }
+
+  public main_groups = {
+    batch: async (query: any, body: any) =>
+      this.httpClient.POST("/article_main_groups/batch", {
+        params: { query },
+        body
+      }),
+    get: async (query: any) =>
+      this.httpClient.GET("/article_main_groups", { params: { query } }),
+    post: async (query: any, body: any) =>
+      this.httpClient.POST("/article_main_groups", { params: { query }, body }),
+    getById: async (article_main_group: any) =>
+      this.httpClient.GET("/article_main_groups/{article_main_group}", {
+        params: { path: { article_main_group } }
+      }),
+    putById: async (article_main_group: any, query: any, body: any) =>
+      this.httpClient.PUT("/article_main_groups/{article_main_group}", {
+        params: { query, path: { article_main_group } },
+        body
+      }),
+    deleteById: async (article_main_group: any) =>
+      this.httpClient.DELETE("/article_main_groups/{article_main_group}", {
+        params: { path: { article_main_group } }
+      })
+  }
 }
