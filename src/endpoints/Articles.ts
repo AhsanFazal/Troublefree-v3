@@ -47,7 +47,7 @@ export class Articles extends BaseEndpoint {
       })
   }
 
-  public main_groups = {
+  public mainGroups = {
     batch: async (query: any, body: any) =>
       this.httpClient.POST("/article_main_groups/batch", {
         params: { query },
@@ -70,5 +70,21 @@ export class Articles extends BaseEndpoint {
       this.httpClient.DELETE("/article_main_groups/{article_main_group}", {
         params: { path: { article_main_group } }
       })
+  }
+
+  translationFields = {
+    get: async (article: any, field: any, query: any) =>
+      this.httpClient.GET("/articles/{article}/translations/{field}", {
+        params: { query }
+      }),
+    post: async (article: any, field: any, query: any, body: any) =>
+      this.httpClient.POST("/articles/{article}/translations/{field}", {
+        params: { query },
+        body
+      })
+    // delete: async (article: any, field: any, query: any) =>
+    //   this.httpClient.DELETE("/articles/{article}/translations/{field}", {
+    //     params: { path: { article, field }, query }
+    //   })
   }
 }
