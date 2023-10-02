@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`endpoints should export all endpoints 1`] = `
+[
+  "Articles",
+]
+`;
