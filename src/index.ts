@@ -1,4 +1,5 @@
 import createClient from "openapi-fetch"
+import https from "https"
 import * as endpoints from "./endpoints"
 import { paths } from "./lib/api"
 
@@ -28,21 +29,27 @@ type EndpointInstances = {
 export default class Troublefree {
   // Private properties
   private httpClient: ReturnType<typeof createClient<paths>>
-  private accessToken?: string
-  private baseURL: string = "https://retail.troublefree.com/v3/api"
+  private baseURL: string = "https://retail.troublefree.nl/v3/api"
 
   // Public properties
   public endpoints: EndpointInstances = {} as any
 
   constructor(config: ClientConfig) {
+    const basicAuth = Buffer.from(
+      `${config.username}:${config.password}`
+    ).toString("base64")
+
+    console.log(`username: ${config.username}`)
+    console.log(`password: ${config.password}`)
+    console.log(`company: ${config.company}`)
+    console.log(`basicAuth: ${basicAuth}`)
     this.httpClient = createClient<paths>({
       baseUrl: this.baseURL,
       headers: {
-        Authorization: `Basic ${Buffer.from(
-          `${config.username}:${config.password}`
-        ).toString("base64")}`,
-        Company: config.company,
-        "Content-Type": "application/json"
+        authorization: `Basic ${basicAuth}`,
+        company: config.company,
+        "Content-Type": "application/json",
+        Accept: "*/*"
       }
     })
     this.initializeEndpoints()
