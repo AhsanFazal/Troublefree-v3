@@ -1,9 +1,9 @@
 import Troublefree, { ClientConfig } from "../src"
 
 const config: ClientConfig = {
-  username: process.env.USERNAME as string,
-  password: process.env.PASSWORD as string,
-  company: process.env.COMPANY as string
+  username: process.env._USERNAME as string,
+  password: process.env._PASSWORD as string,
+  company: process.env._COMPANY as string
 }
 
 const client = new Troublefree(config)
