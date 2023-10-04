@@ -1,26 +1,22 @@
 import { BaseEndpoint } from "./Base"
 
 export class Articles extends BaseEndpoint {
-  public async get(query: any) {
-    return this.httpClient.GET("/articles", { params: { query } })
-  }
+  public get = async (query: any) =>
+    this.httpClient.GET("/articles", { params: { query } })
 
-  public async store(query: any, body: any) {
-    return this.httpClient.POST("/articles", { params: { query }, body })
-  }
+  public store = async (query: any, body: any) =>
+    this.httpClient.POST("/articles", { params: { query }, body })
 
-  public async update(article: any, query: any, body: any) {
-    return this.httpClient.PUT("/articles/{article}", {
+  public update = async (article: any, query: any, body: any) =>
+    this.httpClient.PUT("/articles/{article}", {
       params: { query, path: { article } },
       body
     })
-  }
 
-  public async delete(article: any) {
-    return this.httpClient.DELETE("/articles/{article}", {
+  public delete = async (article: any) =>
+    this.httpClient.DELETE("/articles/{article}", {
       params: { path: { article } }
     })
-  }
 
   public groups = {
     batch: async (query: any, body: any) =>
