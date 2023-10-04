@@ -47,6 +47,22 @@ export class Articles extends BaseEndpoint {
       })
   }
 
+  public translationFields = {
+    get: async (article: any, field: any, query: any) =>
+      this.httpClient.GET("/articles/{article}/translations/{field}", {
+        params: { query, path: { article, field } }
+      }),
+    store: async (article: any, field: any, body: any) =>
+      this.httpClient.POST("/articles/{article}/translations/{field}", {
+        params: { path: { article, field } },
+        body
+      }),
+    delete: async (article: any, field: any, query: any) =>
+      this.httpClient.DELETE("/articles/{article}/translations/{field}", {
+        params: { path: { article, field }, query }
+      })
+  }
+
   public mainGroups = {
     batch: async (query: any, body: any) =>
       this.httpClient.POST("/article_main_groups/batch", {
@@ -69,22 +85,6 @@ export class Articles extends BaseEndpoint {
     deleteById: async (article_main_group: any) =>
       this.httpClient.DELETE("/article_main_groups/{article_main_group}", {
         params: { path: { article_main_group } }
-      })
-  }
-
-  translationFields = {
-    get: async (article: any, field: any, query: any) =>
-      this.httpClient.GET("/articles/{article}/translations/{field}", {
-        params: { query, path: { article, field } }
-      }),
-    store: async (article: any, field: any, body: any) =>
-      this.httpClient.POST("/articles/{article}/translations/{field}", {
-        params: { path: { article, field } },
-        body
-      }),
-    delete: async (article: any, field: any, query: any) =>
-      this.httpClient.DELETE("/articles/{article}/translations/{field}", {
-        params: { path: { article, field }, query }
       })
   }
 }
