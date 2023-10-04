@@ -87,4 +87,58 @@ export class Articles extends BaseEndpoint {
         params: { path: { article, field }, query }
       })
   }
+
+  public mainArticles = {
+    batch: async (query: any, body: any) =>
+      this.httpClient.POST("/main_articles/batch", {
+        params: { query },
+        body
+      }),
+    get: async (query: any) =>
+      this.httpClient.GET("/main_articles", { params: { query } }),
+    store: async (query: any, body: any) =>
+      this.httpClient.POST("/main_articles", { params: { query }, body }),
+    getById: async (main_article: any) =>
+      this.httpClient.GET("/main_articles/{main_article}", {
+        params: { path: { main_article } }
+      }),
+    updateById: async (main_article: any, query: any, body: any) =>
+      this.httpClient.PUT("/main_articles/{main_article}", {
+        params: { query, path: { main_article } },
+        body
+      }),
+    deleteById: async (main_article: any) =>
+      this.httpClient.DELETE("/main_articles/{main_article}", {
+        params: { path: { main_article } }
+      })
+  }
+
+  public warehouseStock = {
+    get: async (warehouse: any, query: any) =>
+      this.httpClient.GET("/articles/stock/warehouses/{warehouse}", {
+        params: { query, path: { warehouse } }
+      }),
+    mutate: async (article: any, warehouse: any, body: any) =>
+      this.httpClient.POST(
+        "/articles/{article}/stock/warehouses/{warehouse}/mutate",
+        {
+          params: { path: { article, warehouse } },
+          body
+        }
+      ),
+    getById: async (article: any, warehouse: any) =>
+      this.httpClient.GET("/articles/{article}/stock/warehouses/{warehouse}", {
+        params: { path: { article, warehouse } }
+      }),
+    updateById: async (article: any, warehouse: any, body: any) =>
+      this.httpClient.PUT("/articles/{article}/stock/warehouses/{warehouse}", {
+        params: { path: { article, warehouse } },
+        body
+      })
+  }
+
+  public stock = {
+    update: async (body: any) =>
+      this.httpClient.PUT("/articles/stock", { body })
+  }
 }
