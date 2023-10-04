@@ -1,5 +1,10 @@
 # Troublefree v3 TypeScript API Client
 
+[![NPM Version](https://img.shields.io/npm/v/troublefree-v3.svg)](https://www.npmjs.com/package/troublefree-v3)
+[![NPM Downloads](https://img.shields.io/npm/dm/troublefree-v3.svg)](https://www.npmjs.com/package/troublefree-v3)
+
+[![Build Status](https://github.com/AhsanFazal/Troublefree-v3/actions/workflows/build.yml/badge.svg)](https://github.com/AhsanFazal/Troublefree-v3/actions)
+
 Unofficial TypeScript API client for the [Troublefree Retail API](https://retail.troublefree.nl/v3/api/documentation).
 
 ## Installation

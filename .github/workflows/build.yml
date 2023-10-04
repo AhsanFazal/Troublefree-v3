@@ -1,7 +1,7 @@
-name: Node.js CI
+name: Build
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 
@@ -18,3 +18,5 @@ jobs:
         run: npm ci
       - name: Test
         run: npm test
+      - name: Build
+        run: npm run build
