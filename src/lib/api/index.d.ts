@@ -3495,6 +3495,8 @@ export interface paths {
     delete: {
       parameters: {
         path: {
+          /** @description Relation id */
+          relation: number;
           /** @description Price agreement id */
           priceAgreement: number;
         };
