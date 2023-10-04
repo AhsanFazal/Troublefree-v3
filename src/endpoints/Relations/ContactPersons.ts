@@ -6,9 +6,10 @@ export class ContactPersons extends BaseEndpoint {
       params: { path: { relation } }
     })
 
-  public store = (relation: any) =>
+  public store = (body: any, relation: any) =>
     this.httpClient.POST("/relations/{relation}/contactpersons", {
-      params: { path: { relation } }
+      params: { path: { relation } },
+      body
     })
 
   public getById = (relation: any, contactperson: any) =>
@@ -19,9 +20,10 @@ export class ContactPersons extends BaseEndpoint {
       }
     )
 
-  public updateById = (relation: any, contactperson: any) =>
+  public updateById = (body: any, relation: any, contactperson: any) =>
     this.httpClient.PUT("/relations/{relation}/contactperson/{contactperson}", {
-      params: { path: { relation, contactperson } }
+      params: { path: { relation, contactperson } },
+      body
     })
 
   public deleteById = (relation: any, contactperson: any) =>
