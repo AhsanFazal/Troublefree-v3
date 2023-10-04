@@ -24,7 +24,7 @@ export class Assets extends BaseEndpoint {
     })
 
   public external = {
-    updateBySourceRelationId: async (
+    updateBySourceRelationId: (
       sourceRelation: any,
       externalId: any,
       body: any

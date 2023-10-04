@@ -45,7 +45,7 @@ export class Orders extends BaseEndpoint {
     })
 
   public external = {
-    updateBySourceRelationId: async (
+    updateBySourceRelationId: (
       sourceRelation: any,
       externalId: any,
       query: any,
@@ -56,7 +56,7 @@ export class Orders extends BaseEndpoint {
         body
       }),
 
-    deliver: async (sourceRelation: any, externalId: any, body: any) =>
+    deliver: (sourceRelation: any, externalId: any, body: any) =>
       this.httpClient.POST(
         "/orders/external/{sourceRelation}/{externalId}/deliver",
         {

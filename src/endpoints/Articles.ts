@@ -1,120 +1,120 @@
 import { BaseEndpoint } from "./Base"
 
 export class Articles extends BaseEndpoint {
-  public get = async (query: any) =>
+  public get = (query: any) =>
     this.httpClient.GET("/articles", { params: { query } })
 
-  public store = async (query: any, body: any) =>
+  public store = (query: any, body: any) =>
     this.httpClient.POST("/articles", { params: { query }, body })
 
-  public update = async (article: any, query: any, body: any) =>
+  public update = (article: any, query: any, body: any) =>
     this.httpClient.PUT("/articles/{article}", {
       params: { query, path: { article } },
       body
     })
 
-  public delete = async (article: any) =>
+  public delete = (article: any) =>
     this.httpClient.DELETE("/articles/{article}", {
       params: { path: { article } }
     })
 
   public groups = {
-    batch: async (query: any, body: any) =>
+    batch: (query: any, body: any) =>
       this.httpClient.POST("/article_groups/batch", {
         params: { query },
         body
       }),
-    get: async (query: any) =>
+    get: (query: any) =>
       this.httpClient.GET("/article_groups", { params: { query } }),
-    store: async (query: any, body: any) =>
+    store: (query: any, body: any) =>
       this.httpClient.POST("/article_groups", { params: { query }, body }),
-    getById: async (article_group: any) =>
+    getById: (article_group: any) =>
       this.httpClient.GET("/article_groups/{article_group}", {
         params: { path: { article_group } }
       }),
-    updateById: async (article_group: any, query: any, body: any) =>
+    updateById: (article_group: any, query: any, body: any) =>
       this.httpClient.PUT("/article_groups/{article_group}", {
         params: { query, path: { article_group } },
         body
       }),
-    deleteById: async (article_group: any) =>
+    deleteById: (article_group: any) =>
       this.httpClient.DELETE("/article_groups/{article_group}", {
         params: { path: { article_group } }
       })
   }
 
   public mainGroups = {
-    batch: async (query: any, body: any) =>
+    batch: (query: any, body: any) =>
       this.httpClient.POST("/article_main_groups/batch", {
         params: { query },
         body
       }),
-    get: async (query: any) =>
+    get: (query: any) =>
       this.httpClient.GET("/article_main_groups", { params: { query } }),
-    store: async (query: any, body: any) =>
+    store: (query: any, body: any) =>
       this.httpClient.POST("/article_main_groups", { params: { query }, body }),
-    getById: async (article_main_group: any) =>
+    getById: (article_main_group: any) =>
       this.httpClient.GET("/article_main_groups/{article_main_group}", {
         params: { path: { article_main_group } }
       }),
-    updateById: async (article_main_group: any, query: any, body: any) =>
+    updateById: (article_main_group: any, query: any, body: any) =>
       this.httpClient.PUT("/article_main_groups/{article_main_group}", {
         params: { query, path: { article_main_group } },
         body
       }),
-    deleteById: async (article_main_group: any) =>
+    deleteById: (article_main_group: any) =>
       this.httpClient.DELETE("/article_main_groups/{article_main_group}", {
         params: { path: { article_main_group } }
       })
   }
 
   public translationFields = {
-    get: async (article: any, field: any, query: any) =>
+    get: (article: any, field: any, query: any) =>
       this.httpClient.GET("/articles/{article}/translations/{field}", {
         params: { query, path: { article, field } }
       }),
-    store: async (article: any, field: any, body: any) =>
+    store: (article: any, field: any, body: any) =>
       this.httpClient.POST("/articles/{article}/translations/{field}", {
         params: { path: { article, field } },
         body
       }),
-    delete: async (article: any, field: any, query: any) =>
+    delete: (article: any, field: any, query: any) =>
       this.httpClient.DELETE("/articles/{article}/translations/{field}", {
         params: { path: { article, field }, query }
       })
   }
 
   public mainArticles = {
-    batch: async (query: any, body: any) =>
+    batch: (query: any, body: any) =>
       this.httpClient.POST("/main_articles/batch", {
         params: { query },
         body
       }),
-    get: async (query: any) =>
+    get: (query: any) =>
       this.httpClient.GET("/main_articles", { params: { query } }),
-    store: async (query: any, body: any) =>
+    store: (query: any, body: any) =>
       this.httpClient.POST("/main_articles", { params: { query }, body }),
-    getById: async (main_article: any) =>
+    getById: (main_article: any) =>
       this.httpClient.GET("/main_articles/{main_article}", {
         params: { path: { main_article } }
       }),
-    updateById: async (main_article: any, query: any, body: any) =>
+    updateById: (main_article: any, query: any, body: any) =>
       this.httpClient.PUT("/main_articles/{main_article}", {
         params: { query, path: { main_article } },
         body
       }),
-    deleteById: async (main_article: any) =>
+    deleteById: (main_article: any) =>
       this.httpClient.DELETE("/main_articles/{main_article}", {
         params: { path: { main_article } }
       })
   }
 
   public warehouseStock = {
-    get: async (warehouse: any, query: any) =>
+    get: (warehouse: any, query: any) =>
       this.httpClient.GET("/articles/stock/warehouses/{warehouse}", {
         params: { query, path: { warehouse } }
       }),
-    mutate: async (article: any, warehouse: any, body: any) =>
+    mutate: (article: any, warehouse: any, body: any) =>
       this.httpClient.POST(
         "/articles/{article}/stock/warehouses/{warehouse}/mutate",
         {
@@ -122,11 +122,11 @@ export class Articles extends BaseEndpoint {
           body
         }
       ),
-    getById: async (article: any, warehouse: any) =>
+    getById: (article: any, warehouse: any) =>
       this.httpClient.GET("/articles/{article}/stock/warehouses/{warehouse}", {
         params: { path: { article, warehouse } }
       }),
-    updateById: async (article: any, warehouse: any, body: any) =>
+    updateById: (article: any, warehouse: any, body: any) =>
       this.httpClient.PUT("/articles/{article}/stock/warehouses/{warehouse}", {
         params: { path: { article, warehouse } },
         body
@@ -134,7 +134,6 @@ export class Articles extends BaseEndpoint {
   }
 
   public stock = {
-    update: async (body: any) =>
-      this.httpClient.PUT("/articles/stock", { body })
+    update: (body: any) => this.httpClient.PUT("/articles/stock", { body })
   }
 }

@@ -2,16 +2,16 @@ import { BaseEndpoint } from "./Base"
 
 export class Ticketing extends BaseEndpoint {
   public scheduleEntries = {
-    get: async (query: any) =>
+    get: (query: any) =>
       this.httpClient.GET("/ticketing/schedule_entries", { params: { query } }),
 
-    store: async (body: any, query: any) =>
+    store: (body: any, query: any) =>
       this.httpClient.POST("/ticketing/schedule_entries", {
         params: { query },
         body
       }),
 
-    update: async (ticketingScheduleEntry: any, body: any) =>
+    update: (ticketingScheduleEntry: any, body: any) =>
       this.httpClient.PUT(
         "/ticketing/schedule_entries/{ticketingScheduleEntry}",
         {
@@ -22,7 +22,7 @@ export class Ticketing extends BaseEndpoint {
         }
       ),
 
-    delete: async (ticketingScheduleEntry: any) =>
+    delete: (ticketingScheduleEntry: any) =>
       this.httpClient.DELETE(
         "/ticketing/schedule_entries/{ticketingScheduleEntry}",
         {
