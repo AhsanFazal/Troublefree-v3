@@ -23,14 +23,16 @@ yarn add troublefree-v3
 
 ## Usage
 
-### Creating a client
+### Create a client
 
 ```typescript
-import { Troublefree } from "troublefree-v3"
+import Troublefree, { ClientConfig } from "troublefree-v3"
 
-const client = new Troublefree({
+const config: ClientConfig = {
   username: "[USERNAME]",   // Troublefree username
   password: "[PASSWORD]",   // Troublefree password
   company: "[COMPANY]",     // Troublefree company (administration name)
-})
+}
+
+const client = new Troublefree(config)
 ```
