@@ -411,6 +411,12 @@ export interface paths {
           /** @description Language id or language ISO 639-1 code */
           language?: string;
         };
+        path: {
+          /** @description Article ID */
+          article: number;
+          /** @description Translation field */
+          field: string;
+        };
       };
       responses: {
         /** @description OK */
@@ -423,6 +429,14 @@ export interface paths {
     };
     /** Set or update an article field translation */
     post: {
+      parameters: {
+        path: {
+          /** @description Article ID */
+          article: number;
+          /** @description Translation field */
+          field: string;
+        };
+      };
       /** @description Translation */
       requestBody?: {
         content: {
@@ -451,6 +465,12 @@ export interface paths {
         query?: {
           /** @description Language id or language ISO 639-1 code */
           language?: string;
+        };
+        path: {
+          /** @description Article ID */
+          article: number;
+          /** @description Translation field */
+          field: string;
         };
       };
       responses: {
