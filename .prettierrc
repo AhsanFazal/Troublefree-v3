@@ -5,6 +5,6 @@
   "semi": false,
   "singleQuote": false,
   "trailingComma": "none",
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "endOfLine": "lf"
 }
