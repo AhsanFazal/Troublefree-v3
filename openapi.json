@@ -6821,15 +6821,6 @@
             }
           },
           {
-            "name": "article_group",
-            "in": "path",
-            "description": "Article group ID",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
             "name": "include_draft_orders",
             "in": "query",
             "description": "Whether to include draft orders in the revenue calculation.",
@@ -6942,15 +6933,6 @@
             "schema": {
               "type": "string",
               "format": "date"
-            }
-          },
-          {
-            "name": "article_group",
-            "in": "path",
-            "description": "Article group ID",
-            "required": true,
-            "schema": {
-              "type": "integer"
             }
           },
           {
