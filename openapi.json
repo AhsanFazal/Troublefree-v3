@@ -6410,6 +6410,15 @@
         "summary": "Remove a price agreement",
         "parameters": [
           {
+            "name": "relation",
+            "in": "path",
+            "description": "Relation id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
             "name": "priceAgreement",
             "in": "path",
             "description": "Price agreement id",
