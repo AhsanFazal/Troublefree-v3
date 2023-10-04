@@ -4,22 +4,23 @@ export class Offers extends BaseEndpoint {
   public get = (query: any) =>
     this.httpClient.GET("/offers", { params: { query } })
 
-  public store = (query: any) =>
-    this.httpClient.POST("/offers", { params: { query } })
+  public store = (body: any, query: any) =>
+    this.httpClient.POST("/offers", { params: { query }, body })
 
   public getById = (query: any, offer: any) =>
     this.httpClient.GET("/offers/{offer}", {
       params: { query, path: { offer } }
     })
 
-  public updateById = (query: any, offer: any) =>
+  public updateById = (body: any, query: any, offer: any) =>
     this.httpClient.PUT("/offers/{offer}", {
-      params: { query, path: { offer } }
+      params: { query, path: { offer } },
+      body
     })
 
-  public approve = (query: any, offer: any, signature: any) =>
+  public approve = (body: any, query: any, offer: any) =>
     this.httpClient.POST("/offers/{offer}/approve", {
       params: { query, path: { offer } },
-      body: signature
+      body
     })
 }
