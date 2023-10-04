@@ -95,19 +95,22 @@ export class Purchase extends BaseEndpoint {
         params: { query, path: { purchase_receipt } },
         body
       }),
-    revert: (purchase_receipt: any) =>
+    revert: (body: any, purchase_receipt: any) =>
       this.httpClient.POST("/purchase/receipts/{purchase_receipt}/revert", {
-        params: { path: { purchase_receipt } }
+        params: { path: { purchase_receipt } },
+        body
       }),
-    complete: (purchase_receipt: any) =>
+    complete: (body: any, purchase_receipt: any) =>
       this.httpClient.POST("/purchase/receipts/{purchase_receipt}/complete", {
-        params: { path: { purchase_receipt } }
+        params: { path: { purchase_receipt } },
+        body
       }),
-    revertCompletion: (purchase_receipt: any) =>
+    revertCompletion: (body: any, purchase_receipt: any) =>
       this.httpClient.POST(
         "/purchase/receipts/{purchase_receipt}/revert_completion",
         {
-          params: { path: { purchase_receipt } }
+          params: { path: { purchase_receipt } },
+          body
         }
       )
   }
