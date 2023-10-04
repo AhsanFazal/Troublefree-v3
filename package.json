@@ -1,6 +1,6 @@
 {
   "name": "troublefree-v3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An unofficial TypeScript implementation of the Troublefree v3 API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
