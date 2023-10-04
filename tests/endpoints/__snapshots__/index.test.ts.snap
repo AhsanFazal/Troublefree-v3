@@ -3,5 +3,23 @@
 exports[`endpoints should export all endpoints 1`] = `
 [
   "Articles",
+  "AssetClasses",
+  "AssetCustomFields",
+  "Assets",
+  "CustomAttributes",
+  "Documents",
+  "Files",
+  "Invoices",
+  "KnowledgeBase",
+  "Locale",
+  "Offers",
+  "Orders",
+  "PackingSlip",
+  "Project",
+  "Purchase",
+  "Relations",
+  "Schedule",
+  "Ticketing",
+  "Transport",
 ]
 `;
