@@ -1,5 +1,4 @@
 import createClient from "openapi-fetch"
-import https from "https"
 import * as endpoints from "./endpoints"
 import { paths } from "./lib/api"
 
@@ -39,10 +38,6 @@ export default class Troublefree {
       `${config.username}:${config.password}`
     ).toString("base64")
 
-    console.log(`username: ${config.username}`)
-    console.log(`password: ${config.password}`)
-    console.log(`company: ${config.company}`)
-    console.log(`basicAuth: ${basicAuth}`)
     this.httpClient = createClient<paths>({
       baseUrl: this.baseURL,
       headers: {
