@@ -6,9 +6,10 @@ export class Addresses extends BaseEndpoint {
       params: { query, path: { relation } }
     })
 
-  public store = (relation: any) =>
+  public store = (body: any, relation: any) =>
     this.httpClient.POST("/relations/{relation}/addresses", {
-      params: { path: { relation } }
+      params: { path: { relation } },
+      body
     })
 
   public getById = (query: any, relation: any, address: any) =>
@@ -16,9 +17,10 @@ export class Addresses extends BaseEndpoint {
       params: { query, path: { relation, address } }
     })
 
-  public updateById = (relation: any, address: any) =>
+  public updateById = (body: any, relation: any, address: any) =>
     this.httpClient.PUT("/relations/{relation}/addresses/{address}", {
-      params: { path: { relation, address } }
+      params: { path: { relation, address } },
+      body
     })
 
   public deleteById = (relation: any, address: any) =>
@@ -27,11 +29,12 @@ export class Addresses extends BaseEndpoint {
     })
 
   public external = {
-    store: (relation: any, sourceRelation: any, externalId: any) =>
+    store: (body: any, relation: any, sourceRelation: any, externalId: any) =>
       this.httpClient.POST(
         "/relations/{relation}/addresses/external/{sourceRelation}/{externalId}",
         {
-          params: { path: { relation, sourceRelation, externalId } }
+          params: { path: { relation, sourceRelation, externalId } },
+          body
         }
       )
   }
