@@ -3724,8 +3724,6 @@ export interface paths {
         path: {
           /** @description Relation id */
           relation: number;
-          /** @description Article group ID */
-          article_group: number;
         };
       };
       responses: {
@@ -3780,8 +3778,6 @@ export interface paths {
         path: {
           /** @description Relation id */
           relation: number;
-          /** @description Article group ID */
-          article_group: number;
         };
       };
       responses: {
