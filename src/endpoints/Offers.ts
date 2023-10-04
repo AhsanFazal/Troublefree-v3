@@ -17,11 +17,7 @@ export class Offers extends BaseEndpoint {
       params: { query, path: { offer } }
     })
 
-  public approve = (
-    query: any,
-    offer: any,
-    signature: any // TODO: Signature is form data. Handle form data in httpClient instance.
-  ) =>
+  public approve = (query: any, offer: any, signature: any) =>
     this.httpClient.POST("/offers/{offer}/approve", {
       params: { query, path: { offer } },
       body: signature
