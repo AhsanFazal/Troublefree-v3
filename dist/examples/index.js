@@ -14,9 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const src_1 = __importDefault(require("../src"));
 const config = {
-    username: process.env.USERNAME,
-    password: process.env.PASSWORD,
-    company: process.env.COMPANY
+    username: process.env._USERNAME,
+    password: process.env._PASSWORD,
+    company: process.env._COMPANY
 };
 const client = new src_1.default(config);
 /**
@@ -26,10 +26,11 @@ function getArticles() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const { data, error: _ } = yield client.endpoints.articles.get({});
-            return data;
+            console.log(data);
         }
         catch (error) {
             throw error;
         }
     });
 }
+getArticles();

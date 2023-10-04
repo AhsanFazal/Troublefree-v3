@@ -13,7 +13,6 @@ type EndpointInstances = {
 };
 export default class Troublefree {
     private httpClient;
-    private accessToken?;
     private baseURL;
     endpoints: EndpointInstances;
     constructor(config: ClientConfig);

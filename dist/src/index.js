@@ -30,15 +30,17 @@ const openapi_fetch_1 = __importDefault(require("openapi-fetch"));
 const endpoints = __importStar(require("./endpoints"));
 class Troublefree {
     constructor(config) {
-        this.baseURL = "https://retail.troublefree.com/v3/api";
+        this.baseURL = "https://retail.troublefree.nl/v3/api";
         // Public properties
         this.endpoints = {};
+        const basicAuth = Buffer.from(`${config.username}:${config.password}`).toString("base64");
         this.httpClient = (0, openapi_fetch_1.default)({
             baseUrl: this.baseURL,
             headers: {
-                Authorization: `Basic ${Buffer.from(`${config.username}:${config.password}`).toString("base64")}`,
-                Company: config.company,
-                "Content-Type": "application/json"
+                authorization: `Basic ${basicAuth}`,
+                company: config.company,
+                "Content-Type": "application/json",
+                Accept: "*/*"
             }
         });
         this.initializeEndpoints();
