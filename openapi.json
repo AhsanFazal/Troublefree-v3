@@ -744,6 +744,24 @@
         "summary": "Get one or more article field translations",
         "parameters": [
           {
+            "name": "article",
+            "in": "path",
+            "description": "Article ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "field",
+            "in": "path",
+            "description": "Translation field",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "language",
             "in": "query",
             "description": "Language id or language ISO 639-1 code",
@@ -770,6 +788,26 @@
       "post": {
         "tags": ["Articles"],
         "summary": "Set or update an article field translation",
+        "parameters": [
+          {
+            "name": "article",
+            "in": "path",
+            "description": "Article ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "field",
+            "in": "path",
+            "description": "Translation field",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Translation",
           "content": {
@@ -798,6 +836,24 @@
         "summary": "Delete one or all translations for a field",
         "description": "When no language is supplied, all translations for the field will be removed.",
         "parameters": [
+          {
+            "name": "article",
+            "in": "path",
+            "description": "Article ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "field",
+            "in": "path",
+            "description": "Translation field",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "language",
             "in": "query",
