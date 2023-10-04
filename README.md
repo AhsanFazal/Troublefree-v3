@@ -25,8 +25,8 @@ yarn add troublefree-v3
 import { Troublefree } from "troublefree-v3"
 
 const client = new Troublefree({
-  username: "[USERNAME]",
-  password: "[PASSWORD]",
-  company: "[COMPANY]",
+  username: "[USERNAME]",   // Troublefree username
+  password: "[PASSWORD]",   // Troublefree password
+  company: "[COMPANY]",     // Troublefree company (administration name)
 })
 ```
